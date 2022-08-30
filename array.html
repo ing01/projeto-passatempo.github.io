@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <label class="sr-only">Insira um número</label>
+            <input type="text" class="form-control" id="numero" placeholder="Número">
+            <button type="submit" class="btn btn-primary mb-2" onclick="adicionar()">Adicionar</button>
+        </div>
+        <div id="result"></div>
+    </div>
+    
+    <script>
+        var numeros = [];
+        
+        function adicionar() {
+            var inputElement = document.querySelector("#numero").value;
+            numeros.push(inputElement);
+            document.querySelector('#result').innerHTML = list(numeros).outerHTML;
+            }
+
+            function list(array) {
+            var listElement = document.createElement("ul");
+
+            for (var i = 0; i < array.length; i++) {
+                var itemElement = document.createElement('li');
+                itemElement.appendChild(document.createTextNode(array[i]));
+                listElement.appendChild(itemElement);
+            }
+            return listElement;
+        }
+
+        document.querySelector('#result').appendChild(list(numeros));
+    </script>
+</body>
+</html>
