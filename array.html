@@ -8,21 +8,21 @@
 <body>
     <div class="container">
         <div>
-            <label class="sr-only">Insira um número</label>
-            <input type="text" class="form-control" id="numero" placeholder="Número">
+            <label class="sr-only">Insira um nome</label>
+            <input type="text" class="form-control" id="nome" placeholder="Nome">
             <button type="submit" class="btn btn-primary mb-2" onclick="adicionar()">Adicionar</button>
+            <button type="submit" class="btn btn-primary mb-2" onclick="alfabetico()">Visualizar em ordem alfabética</button>
         </div>
         <div id="result"></div>
     </div>
     
     <script>
-        var numeros = [];
-        
-        function adicionar() {
-            var inputElement = document.querySelector("#numero").value;
-            numeros.push(inputElement);
-            document.querySelector('#result').innerHTML = list(numeros).outerHTML;
-            }
+        var nomes = [];
+
+        function adicionar(){
+            var inputElement = document.querySelector("#nome").value;
+            nomes.push(inputElement);
+            document.querySelector('#result').innerHTML = list(nomes).outerHTML;
 
             function list(array) {
             var listElement = document.createElement("ul");
@@ -33,9 +33,14 @@
                 listElement.appendChild(itemElement);
             }
             return listElement;
+            }
         }
 
-        document.querySelector('#result').appendChild(list(numeros));
+        function alfabetico(){
+            document.write(nomes.sort() + '<br>');
+        }
+
+        document.querySelector('#result').appendChild(list(nomes));
     </script>
 </body>
 </html>
