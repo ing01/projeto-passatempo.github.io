@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pessoa</title>
+</head>
+<body>
+    <h1>Características do Carro</h1>
+
+    <div id="container">
+        <label>Marca</label>
+        <br>
+        <input class="form-control" id="marca" type="text">
+        <br> 
+        <label>Modelo</label>
+        <br>
+        <input class="form-control" id="modelo" type="text">
+        <br> 
+        <label>Ano</label>
+        <br>
+        <input class="form-control" id="ano" type="text">
+        <br> 
+        <label>Cor</label>
+        <br>
+        <input class="form-control" id="cor" type="text">
+        <br> 
+        <label>Kilometragem</label>
+        <br>
+        <input class="form-control" id="km" type="text">
+        <br> 
+        <label>Valor</label>
+        <br>
+        <input class="form-control" id="valor_fipe" type="text">
+        <br>
+        <button type="submit" class="btn btn-primary mb-2" id="button">Enviar</button>
+        <br>
+        <label>Anos utilizados: </label><input class="form-control" id="Anocarro" type="text">
+        <br>
+        <label>Valor de mercado: </label><input class="form-control" id="Valorcarro" type="text">
+    </div>
+
+    <p id="resultAno"></p>
+    <p id="resultValor"></p>
+
+    <script type="text/javascript">
+        document.getElementById("button").addEventListener('click', function () {
+            
+            let carro = {
+                marca: document.getElementById("marca").value,
+                modelo: document.getElementById("modelo").value,
+                ano: document.getElementById("ano").value,
+                cor: document.getElementById("cor").value,
+                km: document.getElementById("km").value,
+                valor: document.getElementById("valor_fipe").value,
+
+                anosUtilizacao: function(){
+                    let anoAtual = 2022;
+                    return anoAtual -  carro.ano;
+                },
+
+                valorMercado: function() {
+                    if (carro.km <= 30.000)
+                        return carro.valor *1.1;
+                    if (carro.km >= 30.000 && carro.km <= 50.000)
+                        return carro.valor * 1;
+                    else
+                        return carro.valor * 0.9;
+                }
+            }
+
+            document.getElementById('Anocarro').value = String(carro.anosUtilizacao());
+            document.getElementById('Valorcarro').value = String(carro.valorMercado());
+
+        });
+
+    </script>
+</body>
+</html>
