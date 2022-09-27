@@ -9,36 +9,18 @@
 <body>
     <h1>Características do Carro</h1>
 
-    <div id="container">
-        <label>Marca</label>
-        <br>
-        <input class="form-control" id="marca" type="text">
-        <br> 
-        <label>Modelo</label>
-        <br>
-        <input class="form-control" id="modelo" type="text">
-        <br> 
-        <label>Ano</label>
-        <br>
-        <input class="form-control" id="ano" type="text">
-        <br> 
-        <label>Cor</label>
-        <br>
-        <input class="form-control" id="cor" type="text">
-        <br> 
-        <label>Kilometragem</label>
-        <br>
-        <input class="form-control" id="km" type="text">
-        <br> 
-        <label>Valor</label>
-        <br>
-        <input class="form-control" id="valor_fipe" type="text">
-        <br>
-        <button type="submit" class="btn btn-primary mb-2" id="button">Enviar</button>
-        <br>
-        <label>Anos utilizados: </label><input class="form-control" id="Anocarro" type="text">
-        <br>
-        <label>Valor de mercado: </label><input class="form-control" id="Valorcarro" type="text">
+    <div class="container">
+        <ul>
+            <li><label>Marca</label><input id="marca" type="text"></li>
+            <li><label>Modelo</label><input id="modelo" type="text"></li>
+            <li><label>Ano</label><input id="ano" type="text"></li>
+            <li><label>Cor</label><input id="cor" type="text"></li>
+            <li><label>Kilometragem</label><input id="km" type="text"></li>
+            <li><label>Valor</label><input  id="valor_fipe" type="text"></li>
+            <li><label>Anos utilizados: </label><input id="Anocarro" type="text"></li>
+            <li><label>Valor de mercado: </label><input  id="Valorcarro" type="text"></li>
+            <button type="submit" id="button">Enviar</button>
+        </ul>
     </div>
 
     <p id="resultAno"></p>
@@ -62,17 +44,15 @@
 
                 valorMercado: function() {
                     if (carro.km <= 30.000)
-                        return carro.valor *1.1;
+                        return carro.valor * 1.1;
                     if (carro.km >= 30.000 && carro.km <= 50.000)
                         return carro.valor * 1;
                     else
                         return carro.valor * 0.9;
                 }
             }
-
             document.getElementById('Anocarro').value = String(carro.anosUtilizacao());
             document.getElementById('Valorcarro').value = String(carro.valorMercado());
-
         });
 
     </script>
