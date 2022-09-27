@@ -14,3 +14,7 @@ h1 {
   color: rgb(253, 121, 143);
   font-style: italic;
 }
+
+.container ul {
+  list-style-type: none 
+}
