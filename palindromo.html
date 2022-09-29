@@ -12,7 +12,7 @@
         <p>Definição de Palíndromo: Palíndromo é uma palavra, frase ou sequência numérica que permanece igual quando lida de trás pra frente.</p>
         Insira uma palavra e verifique se é palíndromo:
         <input type="text" id="text">
-        <button id="button">Verificar</button>
+        <button id="button">Verificar palíndromo</button>
         <p id="result"></p>
       </div>
 
@@ -20,20 +20,43 @@
         const button = document.querySelector('#button');
         const resultText = document.querySelector('#result');
 
-        function invertText(text) {
-        const changedText = text.split('').reverse().join('');
-        return text === changedText ? true : false;
+        function check_palindrome(text)
+        {
+            let j = text.length -1;
+            for( let i = 0 ; i < j/2 ;i++)
+            {
+            let x = text[i];
+            let y = text[j-i];
+            if( x != y)
+            {
+                return false;
+            }
+            }
+            return true;  
+        }
+        
+        function is_palindrome(text )
+        {
+            let result = check_palindrome(text);
+
+            if( result == true )
+            {
+            console.log("passed string is palindrome ");
+            }
+            else
+            {
+            console.log("passed string not a palindrome");
+            }
         }
 
         button.addEventListener('click', () => {
             const textValue = document.querySelector('#text').value;
-            const result  = invertText(textValue);
+            const result  = check_palindrome(textValue);
 
             result
                 ? resultText.innerHTML = 'O texto é um palídromo'
                 : resultText.innerHTML = 'O texto não é um palídromo';
         }   );
-
     </script>
 </body>
 </html>
